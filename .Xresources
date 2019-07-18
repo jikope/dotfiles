@@ -1,0 +1,104 @@
+
+! special
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb*color0: #282a2e
+
+! special
+*.foreground:   #97cbdf
+!*.foreground: #FFFFFF
+*.background:   #00151e
+!*.background:   #fffff
+*.cursorColor:  #97cbdf
+
+        *.color0: #090C0F
+        *.color1: #2D4972
+        *.color2: #575757
+        *.color3: #9B7F5F
+        *.color4: #315A8B
+        *.color5: #4E7297
+        *.color6: #628CAF
+        *.color7: #acc9dc
+        *.color8: #788c9a
+        *.color9: #2D4972
+        *.color10: #575757
+        *.color11: #9B7F5F
+        *.color12: #315A8B
+        *.color13: #4E7297
+        *.color14: #628CAF
+        *.color15: #acc9dc
+
+
+!URxvt.font: xft:SauceCodePro Nerd Font Mono:size=9.5
+!URxvt.font: xft:SourceCodePro Nerd Font Mono:size=11
+URxvt.font: xft:Hack Nerd Font Mono:size=9.5
+!URxvt.font: xft:Overpass Mono:size=10
+URxvt.depth:                      32
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*saveLines:                  5000
+URxvt*internalBorder: 		5
+URxvt*geometry: 		70x19
+URxvt.background:		[78]#010109
+!URxvt.background: [100]#222222
+URxvt*letterSpace:		0
+URxvt.lineSpace:		0
+!URxvt.background:   [80]#0d331e
+URxvt.cursorColor:		green
+URxvt.cursorBlink:		1
+URxvt.cursorUnderline:		1
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:		#4682B4
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button:	1
+
+!rofi.color-enabled: true
+!rofi.lines: 3
+!rofi.eh: 3
+!rofi.width: 100
+!rofi.padding: 300
+!rofi.fake-transparency: true
+!rofi.opacity:   80
+!rofi.terminal: st
+!rofi.glob: false
+!rofi.tokenize: true
+!rofi.font: Cantarell 16
+!rofi.location: 0
+rofi.show-icons: true
+rofi.icon-size: 24 x 24
+rofi.hide-scrollbar: true
+!! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+!rofi.color-normal: #00353944,  #FFFFFF,  #00353944,  #5294E2,  #FFFFFF
+!!                  'background', 'border'
+!rofi.color-window: #dd353944,      #dd404552
+rofi.color-enabled: true
+rofi.color-window: #2e3440, #2e3440, #2e3440
+rofi.color-normal: #2e3440, #d8dee9, #2e3440, #2e3440, #bf616a
+rofi.color-active: #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc
+rofi.color-urgent: #2e3440, #ebcb8b, #2e3440, #2e3440, #ebcb8b
+rofi.modi: run,drun,window
+
+! ------------------------------------------------------------------------------
+! Dmenu configs
+! ------------------------------------------------------------------------------
+
+dmenu.selforeground:	    #d8dee9
+dmenu.background:	        #2e3440
+dmenu.selbackground:	    #bf616a
+dmenu.foreground:	        #d8dee9
