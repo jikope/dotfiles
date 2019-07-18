@@ -38,7 +38,7 @@ alias remore='sudo systemctl restart xrdp | sudo systemctl restart xrdp-sesman'
 PS1='\[\033[00;34m\]console \[\033[01;34m\]\w\[\033[01;33m\] >\[\033[00;32m\]///\[\033[01;33m\]< \[\033[01;35m\]'
 #export PATH="$PATH:$(du "$HOME/script/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-export PATH="${PATH}:${HOME}/script/"
+export PATH="${PATH}:${HOME}/.script/"
 export PATH="${PATH}:$HOME/.config/composer/vendor/bin"
 
 export dev="/Media/Data/Laravel/MangaReader/"
