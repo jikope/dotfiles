@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugins')
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdtree'
-Plug 'pangloss/vim-javascript'
+Plug 'tomtom/tlib_vim'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -16,7 +16,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Raimondi/delimitMate'
 Plug 'honza/vim-snippets'
 Plug 'marcweber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
+Plug '1995eaton/vim-better-javascript-completion'
+Plug 'ervandew/supertab'
+Plug 'marcweber/vim-addon-mw-utils'
 call plug#end()
 
 " BASIC CONFIGURATION
@@ -57,17 +60,29 @@ set statusline=%1*\ file\ %3*\ %f\ %4*\
 set statusline+=%=\ 
 set statusline+=%3*\ %l\ of\ %L\ %2*\ line\ 
 set scrolloff=8
+set nopaste
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+let mapleader= ","
 
 """""""""""""""""""""""
 " PLUGINS CONFIGURATION
 """""""""""""""""""""""
+" ULTISNIPPETS AND SUPERTAB
+"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugins/vim-snippets/UltiSnips/']
+let g:UltiSnipsExpandTrigger="<C-r>"
+let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " VIM-EMMET
 "
 let g:user_emmet_install_global = 0
 "let g:user_emmet_leader_key='<C-Y>'
-let g:user_emmet_expandabbr_key='<Tab>'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+let g:user_emmet_expandabbr_key='<C-e>'
+imap <expr> <C-e> emmet#expandAbbrIntelligent("\<C-e>")
 autocmd FileType html,css,php,vue EmmetInstall
 vnoremap <C-b> <C-Y>,
 let g:user_emmet_settings = {
@@ -78,9 +93,10 @@ let g:user_emmet_settings = {
 \}
 
 
-" VIM VUE 
+" VIM VUE AND SCSS
 "
 autocmd FileType vue syntax sync fromstart
+autocmd FileType scss set iskeyword+=-
 
 
 " VIM AIRLINES 
@@ -162,6 +178,19 @@ nmap tn :tabnew<CR>
 "
 vnoremap <C-c> "+y
 map <C-v> "+p
+
+" Move to jumping point
+"
+vnoremap <leader><leader> <Esc>/++<Enter>"_c2l
+noremap <leader><leader> <Esc>/++<Enter>"_c2l
+map <leader><leader> <Esc>/++<Enter>"_c2l
+
+" Window Split Movement
+"
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 """"""""""""""""""""""
 "" THEME CONFIGURATION
