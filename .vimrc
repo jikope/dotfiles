@@ -20,6 +20,8 @@ Plug 'SirVer/ultisnips'
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'ervandew/supertab'
 Plug 'marcweber/vim-addon-mw-utils'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 " BASIC CONFIGURATION
@@ -33,6 +35,7 @@ set showmode
 set showcmd
 set ruler
 set number
+set relativenumber
 set cursorline
 set expandtab
 set noshiftround
@@ -61,9 +64,11 @@ set statusline+=%=\
 set statusline+=%3*\ %l\ of\ %L\ %2*\ line\ 
 set scrolloff=8
 set nopaste
+set guifont=Hack\ Nerd\ Font\ Mono:s9.5
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 let mapleader= ","
+set tags=./tags;/
 
 """""""""""""""""""""""
 " PLUGINS CONFIGURATION
@@ -72,7 +77,7 @@ let mapleader= ","
 "
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugins/vim-snippets/UltiSnips/']
 let g:UltiSnipsExpandTrigger="<C-r>"
-let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -166,11 +171,20 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 "let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
-
-" TAB CONFIGURATION
+" CTRLP 
 "
-nmap tp :tabprevious<CR>
-nmap to :tabnext<CR>
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlPBuffer'
+
+" VIM JEDI / Python Completion
+autocmd FileType python let g:jedi#auto_initialization = 1
+
+" TAB AND BUFFER CONFIGURATION
+"
+nmap tp :bp<CR>
+nmap to :bn<CR>
+nmap tP :tabprevious<CR>
+nmap tO :tabnext<CR>
 nmap tn :tabnew<CR>
 
 
@@ -191,6 +205,13 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+map - $
+map <M-e> <Esc><Esc>
+
+" DELETE BUFFER
+"
+nmap <F5> :bw<CR>
 
 """"""""""""""""""""""
 "" THEME CONFIGURATION
