@@ -38,6 +38,7 @@ ff02::3 ip6-allhosts
 36.91.202.210 video.fkno3-1.fna.fbcdn.net
 31.13.90.6 static.xx.fbcdn.net
 
+151.101.5.140     accounts.reddit.com 
 151.101.129.140   i.redditmedia.com
 52.34.230.181     www.reddithelp.com
 151.101.65.140    g.redditmedia.com
@@ -73,6 +74,51 @@ ff02::3 ip6-allhosts
 104.25.24.115 hentai.cafe
 104.25.23.115 cdn.hentai.cafe
 104.25.23.115 cdn.hentai.cafe
+104.27.159.24 hbrowse.com
+104.27.159.24 www.hbrowse.com
+
+# 4chan hosts
+104.16.119.221 4chan.org
+104.16.120.221 4chan.org
+104.16.118.221 4chan.org
+104.16.116.221 4chan.org
+104.16.117.221 4chan.org
+104.16.117.221 boards.4chan.org
+104.16.119.221 boards.4chan.org
+104.16.120.221 boards.4chan.org
+104.16.118.221 boards.4chan.org
+104.16.116.221 boards.4chan.org
+104.16.117.221 boards.4chan.org
+104.16.117.221 sys.4chan.org
+104.16.119.221 sys.4chan.org
+104.16.120.221 sys.4chan.org
+104.16.118.221 sys.4chan.org
+104.16.116.221 sys.4chan.org
+104.16.117.221 sys.4channel.org
+104.16.119.221 sys.4channel.org
+104.16.120.221 sys.4channel.org
+104.16.118.221 sys.4channel.org
+104.16.116.221 sys.4channel.org
+104.16.119.221 www.4chan.org
+104.16.120.221 www.4chan.org
+104.16.118.221 www.4chan.org
+104.16.116.221 www.4chan.org
+104.16.117.221 www.4chan.org
+104.16.119.221 is2.4chan.org
+104.16.120.221 is2.4chan.org
+104.16.118.221 is2.4chan.org
+104.16.116.221 is2.4chan.org
+104.16.117.221 is2.4chan.org
+104.16.119.221 is3.4chan.org
+104.16.120.221 is3.4chan.org
+104.16.118.221 is3.4chan.org
+104.16.116.221 is3.4chan.org
+104.16.117.221 is3.4chan.org
+104.16.179.122 boards.4channel.org
+104.16.178.122 boards.4channel.org
+104.16.181.122 boards.4channel.org
+104.16.182.122 boards.4channel.org
+104.16.180.122 boards.4channel.org
 
 # End of custom host records.
 ##CUSTOM ADBLOCK
@@ -11512,7 +11558,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 mexico-mmm.net
 0.0.0.0 m.fr.2mdn.net
 0.0.0.0 m.fr.a2dfp.net
-0.0.0.0 m.friendlyduck.com
 0.0.0.0 mf.sitescout.com
 0.0.0.0 mg.dt00.net
 0.0.0.0 mgid.com
@@ -14061,7 +14106,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 www.freeshoppingsource.com
 0.0.0.0 www.freespinwinner.win
 0.0.0.0 www.freo-stats.nl
-0.0.0.0 www.friendlyduck.com
 0.0.0.0 www.frontpagecash.com
 0.0.0.0 www.ftjcfx.com
 0.0.0.0 www.fusionbanners.com
@@ -60400,7 +60444,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 adwcleaner.telecharger.toggle.com
 0.0.0.0 adwpro.adwareprof.hop.clickbank.net
 0.0.0.0 aff12.com
-0.0.0.0 affiliate.friendlyduck.com
 0.0.0.0 affiliate.gwmtracker.com
 0.0.0.0 afftrack.com
 0.0.0.0 agstracker.com
@@ -60707,7 +60750,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 freegoogla.vicp.net
 0.0.0.0 freenew.net
 0.0.0.0 freevideo.biz.nf
-0.0.0.0 friendlyduck.com
 0.0.0.0 fsl.sytes.net
 0.0.0.0 full-edition.info
 0.0.0.0 funbuddyicons.com
@@ -70624,7 +70666,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 404.quickbuck.com
 0.0.0.0 404.ragecash.com
 0.0.0.0 40best.com
-0.0.0.0 4chan.org
 0.0.0.0 4desiz.blogspot.com
 0.0.0.0 4porn.com
 0.0.0.0 4sex4.com
@@ -71301,7 +71342,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 bluewebcams.com
 0.0.0.0 board.freeones.com
 0.0.0.0 boards.420chan.org
-0.0.0.0 boards.4chan.org
 0.0.0.0 bob.crazyshit.com
 0.0.0.0 bobiporn.com
 0.0.0.0 bonabanners.co.uk
@@ -84778,13 +84818,11 @@ ff02::3 ip6-allhosts
 0.0.0.0 banner.ambercoastcasino.com
 0.0.0.0 banner.cdpoker.com
 0.0.0.0 banner.eurogrand.com
-0.0.0.0 m.friendlyduck.com
 # [Prolexic / Confluence][AS40034][50.58.0.0 - 50.59.255.255]
 0.0.0.0 search.keywordblocks.com
 0.0.0.0 www.mnetads.com
 # [Prolexic][AS32787][72.52.0.0 - 72.52.63.255]
 0.0.0.0 tour.affbuzzads.com
-0.0.0.0 www.friendlyduck.com
 # [Proxad][AS12322][212.27.60.0 - 212.83.156.255]
 0.0.0.0 cloud-observer.ip-label.net
 # [Proxad][AS12322][62.210.0.0 - 62.210.255.255]
