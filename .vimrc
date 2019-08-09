@@ -146,8 +146,8 @@ let g:airline_powerline_fonts = 1
   let g:airline_symbols.maxlinenr = ''
   let g:airline_symbols.dirty='⚡'
 
-let g:airline_theme='deus'
-"let g:airline_theme='fruit_punch'
+"let g:airline_theme='deus'
+let g:airline_theme='fruit_punch'
 
 
 " TAGBAR
@@ -219,9 +219,10 @@ nmap <F5> :bw<CR>
 "highlight Normal ctermfg=grey ctermbg=darkblue
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-"colorscheme nord
+"colorscheme onedark
 colorscheme minimalist
 set background=dark
 let g:lightline = { 'colorscheme': 'minimalist'}
-"hi! Normal guifg=NONE ctermbg=NONE guibg=NONE
-"hi! LineNr guifg=NONE ctermbg=NONE guibg=NONE
+hi Normal guifg=NONE ctermbg=NONE guibg=NONE
+hi LineNr guifg=NONE ctermbg=NONE guibg=NONE
+hi nonText guifg=NONE ctermbg=NONE guibg=NONE

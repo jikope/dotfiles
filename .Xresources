@@ -9,29 +9,49 @@ Xft.antialias: 1
 Xft.rgba: rgb*color0: #282a2e
 
 ! special
-*.foreground:   #97cbdf
-!*.foreground: #FFFFFF
-*.background:   #00151e
+! special
+*foreground:        #e0d2db
+*background:        #121114
+*.foreground:       #e0d2db
+*.background:       #121114
 !*.background:   #fffff
 *.cursorColor:  #97cbdf
+*.color0: #121114
+*color0:  #121114
+*.color1: #AB6B8D
+*color1:  #AB6B8D
+*.color2: #C3749E
+*color2:  #C3749E
+*.color3: #C777A2
+*color3:  #C777A2
+*.color4: #B0929E
+*color4:  #B0929E
+*.color5: #CF99A4
+*color5:  #CF99A4
+*.color6: #D4ABAF
+*color6:  #D4ABAF
+*.color7: #e0d2db
+*color7:  #e0d2db
+*.color8: "#9c9399"
+*color8:  "#9c9399"
+*.color9: "#AB6B8D"
+*color9:  "#AB6B8D"
+*.color10: "#C3749E"
+*color10:  "#C3749E"
+*.color11: "#C777A2"
+*color11:  "#C777A2"
+*.color12: "#B0929E"
+*color12:  "#B0929E"
+*.color13: "#CF99A4"
+*color13:  "#CF99A4"
+*.color14: "#D4ABAF"
+*color14:  "#D4ABAF"
+*.color15: "#e0d2db"
+*color15:  "#e0d2db"
 
-        *.color0: #090C0F
-        *.color1: #2D4972
-        *.color2: #575757
-        *.color3: #9B7F5F
-        *.color4: #315A8B
-        *.color5: #4E7297
-        *.color6: #628CAF
-        *.color7: #acc9dc
-        *.color8: #788c9a
-        *.color9: #2D4972
-        *.color10: #575757
-        *.color11: #9B7F5F
-        *.color12: #315A8B
-        *.color13: #4E7297
-        *.color14: #628CAF
-        *.color15: #acc9dc
-
+! Black color that will not be affected by bold highlighting.
+*.color66: #121114
+*color66:  #121114
 
 !URxvt.font: xft:SauceCodePro Nerd Font Mono:size=9.5
 !URxvt.font: xft:SourceCodePro Nerd Font Mono:size=11
@@ -44,8 +64,9 @@ URxvt*cursorBlink:                true
 URxvt*saveLines:                  5000
 URxvt*internalBorder: 		5
 URxvt*geometry: 		70x19
-URxvt.background:		[78]#010109
-!URxvt.background: [100]#222222
+!URxvt.background:		[80]#010109
+urxvt*transparent: true
+urxvt*shading: 90
 URxvt*letterSpace:		0
 URxvt.lineSpace:		0
 !URxvt.background:   [80]#0d331e
