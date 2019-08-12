@@ -1,6 +1,7 @@
 " vim-plug Plugins Manager
 call plug#begin('~/.vim/plugins')
-Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'rafi/awesome-vim-colorschemes'
+Plug 'nightsense/vimspectr'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tlib_vim'
 Plug 'othree/html5.vim'
@@ -219,10 +220,18 @@ nmap <F5> :bw<CR>
 "highlight Normal ctermfg=grey ctermbg=darkblue
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-"colorscheme onedark
-colorscheme minimalist
+"colorscheme challenger_deep
+"colorscheme minimalist
+colorscheme vimspectrgrey-light
 set background=dark
 let g:lightline = { 'colorscheme': 'minimalist'}
-hi Normal guifg=NONE ctermbg=NONE guibg=NONE
-hi LineNr guifg=NONE ctermbg=NONE guibg=NONE
-hi nonText guifg=NONE ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE guibg=NONE
+"hi LineNr ctermbg=NONE guibg=NONE
+hi nonText ctermbg=NONE guibg=NONE
+
+"hi LineNr term=NONE gui=NONE cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+"hi Normal cterm=NONE ctermbg=NONE ctermfg=white guibg=NONE guifg=NONE
+hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+hi CursorLine   cterm=NONE ctermbg=black guibg=darkred 
+hi WildMenu cterm=NONE ctermbg=black guibg=darkred 
+hi PMenu cterm=NONE ctermbg=NONE  guibg=darkred 
