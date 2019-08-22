@@ -19,7 +19,7 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 bindsym $mod+less exec --no-startup-id urxvt -e htop
 bindsym $mod+Shift+p exec --no-startup-id poweroff
-bindsym $mod+p exec --no-startup-id scrot
+bindsym $mod+p exec --no-startup-id scrot -e 'notify-send "Screenshot saved as "$f'
 bindsym $mod+x exec --no-startup-id $HOME/script/call
 bindsym $mod+m exec --no-startup-id urxvt -b 50 -e ncmpcpp
 bindsym $mod+Shift+less exec --no-startup-id mpc prev
