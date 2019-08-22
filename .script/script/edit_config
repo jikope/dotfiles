@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $HOME
+cat script/location | dmenu -l 15 | awk '{print $1}' | xargs -r urxvt -e vim 

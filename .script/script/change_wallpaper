@@ -1,0 +1,5 @@
+#!/bin/sh
+FILE="/home/bima/.config/nitrogen/bg-saved.cfg"
+sed -i '$ d' $FILE 
+du /home/bima/.config/nitrogen/* | cut -f2 | dmenu -l 10 | xargs echo "file= $1" >> $FILE
+nitrogen --restore; sleep 1; compton -b

@@ -1,0 +1,9 @@
+.vimrc
+.Xresources
+.config/i3/config
+.config/polybar/config
+.config/ranger/rc.conf
+.config/nitrogen/bg-saved.cfg
+.config/dunst/dunstrc
+.mpd/mpd.conf
+.ncmpcpp/config
