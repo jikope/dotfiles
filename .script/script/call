@@ -1,3 +1,0 @@
-#!/bin/sh
-# export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-du $HOME/script/* | cut -f2 | dmenu -l 30 | xargs -r sh -
