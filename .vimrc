@@ -1,7 +1,7 @@
 " vim-plug Plugins Manager
 call plug#begin('~/.vim/plugins')
-"Plug 'rafi/awesome-vim-colorschemes'
-Plug 'nightsense/vimspectr'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'Rigellute/shades-of-purple.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tlib_vim'
 Plug 'othree/html5.vim'
@@ -28,7 +28,7 @@ call plug#end()
 " BASIC CONFIGURATION
 noh
 filetype plugin indent on
-syntax on
+syntax enable
 set t_Co=256
 set nocompatible
 set notimeout
@@ -78,10 +78,11 @@ set tags=./tags;/
 "
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugins/vim-snippets/UltiSnips/']
 let g:UltiSnipsExpandTrigger="<C-r>"
-let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsListSnippets="<C-n>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType = "<C-n>"
 
 " VIM-EMMET
 "
@@ -147,9 +148,9 @@ let g:airline_powerline_fonts = 1
   let g:airline_symbols.maxlinenr = ''
   let g:airline_symbols.dirty='⚡'
 
-"let g:airline_theme='deus'
-let g:airline_theme='fruit_punch'
-
+let g:shades_of_purple_airline = 1
+let g:airline_theme='shades_of_purple'
+"let g:airline_theme='violet'
 
 " TAGBAR
 "
@@ -165,7 +166,6 @@ let g:php_namespace_sort_after_insert = 1
 
 " NERDTREE PLUGINS
 "
-map <F2> :NERDTree <CR>
 map <F3> :NERDTreeToggle <CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -179,6 +179,9 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " VIM JEDI / Python Completion
 autocmd FileType python let g:jedi#auto_initialization = 1
+
+" C++ CONFIGURATION
+"autocmd FileType cpp set ofu=omni#cpp#complete#Main
 
 " TAB AND BUFFER CONFIGURATION
 "
@@ -213,6 +216,7 @@ map <M-e> <Esc><Esc>
 " DELETE BUFFER
 "
 nmap <F5> :bw<CR>
+nmap <F2> :noh<CR>
 
 """"""""""""""""""""""
 "" THEME CONFIGURATION
@@ -220,18 +224,15 @@ nmap <F5> :bw<CR>
 "highlight Normal ctermfg=grey ctermbg=darkblue
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-"colorscheme challenger_deep
-"colorscheme minimalist
-colorscheme vimspectrgrey-light
+colorscheme challenger_deep
+"colorscheme shades_of_purple
 set background=dark
-let g:lightline = { 'colorscheme': 'minimalist'}
 hi Normal ctermbg=NONE guibg=NONE
 "hi LineNr ctermbg=NONE guibg=NONE
 hi nonText ctermbg=NONE guibg=NONE
 
-"hi LineNr term=NONE gui=NONE cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-"hi Normal cterm=NONE ctermbg=NONE ctermfg=white guibg=NONE guifg=NONE
+""hi LineNr term=NONE gui=NONE cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+""hi Normal cterm=NONE ctermbg=NONE ctermfg=white guibg=NONE guifg=NONE
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 hi CursorLine   cterm=NONE ctermbg=black guibg=darkred 
-hi WildMenu cterm=NONE ctermbg=black guibg=darkred 
 hi PMenu cterm=NONE ctermbg=NONE  guibg=darkred 
