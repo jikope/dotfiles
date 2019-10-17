@@ -1,8 +1,8 @@
 # Windows key Mod
-set $mod Mod4
+#set $mod Mod4
 
 # Alt key Mod
-#set $mod Mod1
+set $mod Mod1
 
 new_window pixel 0
 new_float normal
@@ -16,14 +16,19 @@ font xft:Source Code Pro 11
 
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 bindsym $mod+less exec --no-startup-id urxvt -e htop
-bindsym $mod+Shift+p exec --no-startup-id poweroff
+bindsym $mod+Shift+p exec --no-startup-id sudo poweroff
 bindsym $mod+p exec --no-startup-id scrot -e 'notify-send "Screenshot saved as "$f'
 bindsym $mod+x exec --no-startup-id $HOME/script/call
-bindsym $mod+m exec --no-startup-id urxvt -b 50 -e ncmpcpp
+bindsym $mod+m exec --no-startup-id urxvt -b 60 -e ncmpcpp
 bindsym $mod+Shift+less exec --no-startup-id mpc prev
 bindsym $mod+Shift+greater exec --no-startup-id mpc next
+bindsym F9 exec --no-startup-id xbacklight -dec 2
+bindsym F10 exec --no-startup-id xbacklight -inc 2
+bindsym F11 exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym F12 exec --no-startup-id amixer -D pulse sset Master 5%+
+
 # Window kill command
 bindsym $mod+q kill
 
@@ -169,10 +174,10 @@ mode "resize" {
         bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
@@ -181,24 +186,28 @@ mode "resize" {
 
 # Autostart applications
 exec_always --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id sudo mount /dev/sda3 /Media/Data
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+#exec --no-startup-id sudo mount /dev/sda3 /Media/Data
+#exec_always --no-startup-id ff-theme-util
+#exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id /$HOME/.config/polybar/launch.sh
+exec_always --no-startup-id xinput disable 12
+exec --no-startup-id setxkbmap -option 'ctrl:nocaps'
+exec --no-startup-id setxkbmap -option 'ctrl:swapcaps'
+exec --no-startup-id sudo ip link set wlp3s0 down
 
 # Theme colors
-client.focused #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
+client.focused          #EAD49B #1E272B #EAD49B #9D6A47 #e0333f
 client.focused_inactive #EAD49B #1E272B #EAD49B #78824B #78824B
-client.unfocused #EAD49B #1E272B #EAD49B #78824B #78824B
-client.urgent #EAD49B #1E272B #EAD49B #78824B #78824B
-client.placeholder #EAD49B #1E272B #EAD49B #78824B #78824B
+client.unfocused        #EAD49B #1E272B #EAD49B #78824B #78824B
+client.urgent           #EAD49B #1E272B #EAD49B #78824B #78824B
+client.placeholder      #EAD49B #1E272B #EAD49B #78824B #78824B
 
 #client.background #1E272B
 client.background  #121b27
 
 # Gaps
-gaps inner 5
-gaps outer 6
+gaps inner 2
+gaps outer 4
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 for_window [class="Firefox"] border pixel 0

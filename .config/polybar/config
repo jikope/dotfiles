@@ -1,67 +1,94 @@
 ; Author : Bima Wiratama
 
+; COLOR
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [colors]
-background = #252a30
-;background = #00252a30
+background-alt = #252a30
+background = #cc252a30
 foreground = ${xrdb:color7}
 foreground-alt = ${xrdb:color1}
 primary = ${xrdb:color3}
-secondary = ${xrdb:color5}
-size = ${xrdb:color3}
+secondary = ${xrdb:color1}
+
+size = ${xrdb:color0}
 ;size = #ea83d0
-right_color = #5EB561
-;right_color = ${xrdb:color3}
+;right_color = #5EB561
+
+right_color = ${xrdb:color2}
 right_text = #fff
 right_icon = #eee
 
+middle = ${xrdb:color1}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; BAR CONFIGURATION
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [bar/example]
-monitor = ${env:MONITOR:LVDS1}
+monitor = ${env:MONITOR:eDP1}
+monitor1 = ${env:MONITOR:DP2}
 ;monitor = ${env:MONITOR:VNC-0}
 width = 100%
-height = 24
+height = 22
 bottom = false 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-offset-x = 2%
-offset-y = 2%
+offset-x = 0%
+offset-y = 0%
 
-line-size = 1
+line-size = 2
 line-color = {$xrdb:color1}
 
-border-size = 2
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
 padding-right = 0
 
 
-font-0 = Dina:size=10.8;2
-font-1 = FontAwesome:size=12.8;2
-;font-1 = Font Awesome 5 Free:size=11:antialias=true:style=Solid
+font-0 = FontAwesome:pixelsize=12.6;2
+;font-1 = FontAwesome:size=8;0
 ;font-2 = Font Awesome 5 Brands:size=11.8:antialias=true:style=Solid;2
-font-2 = Hack Nerd Font:style=Medium:size=16;4
-font-3 = Hanacaraka:size=13;2
-font-4 = Hack Nerd Font:style=Medium:size=14;3
+font-1 = FreeSans:style=Regular:size=10;1
+font-2 = Hanacaraka:size=13;2
+font-3 = Hack Nerd Font:style=Medium:size=16;2
 
-modules-left = filesystem home data right-down volume
+modules-left = battery right-up filesystem home data right-down volume
 modules-center = i3
 modules-right = left-up wlan eth left-down temperature left-up date
 
-tray-position = right
+tray-position = left
 tray-padding = 0
-;tray-transparent = true
-;tray-background = #0063ff
+tray-transparent = true
+;tray-background = ${colors.right_color}
+tray-foreground = ${colors.foreground}
 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; POWERLINE SYMBOL8
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/right-down]
 type = custom/text
 content-background = ${colors.background}
 content-foreground = ${colors.size}
-content = %{T5}%{T-}
+content = %{T4}%{T-}
+content-padding = 0
+content-margin = 0
+
+[module/right-up]
+type = custom/text
+content-background = ${colors.background}
+content-foreground = ${colors.size}
+content = %{T4}%{T-}
 content-padding = 0
 content-margin = 0
 
@@ -69,7 +96,7 @@ content-margin = 0
 type = custom/text
 content-background = ${colors.background}
 content-foreground = ${colors.right_color}
-content = %{T3}%{T-}
+content = %{T4}%{T-}
 content-padding = 0
 content-margin = 0
 
@@ -77,9 +104,15 @@ content-margin = 0
 type = custom/text
 content-background = ${colors.background}
 content-foreground = ${colors.right_color}
-content = %{T3}%{T-}
+content = %{T4}%{T-}
 content-padding = 0
 content-margin = 0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MOUNT SIZE 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/filesystem]
 type = internal/fs
@@ -88,11 +121,11 @@ interval = 25
 mount-0 = /
 
 ;label-mounted = %{F#2e99cd}%mountpoint%%{F-} : %{F#fff}%percentage_used%%
-;label-mounted = ${colors.volume-system}
-label-mounted = %mountpoint% : %{F#fff}%percentage_used%%
+label-mounted = %{T1} %mountpoint% : %{F#fff}%percentage_used%%
+
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-;label-mounted-background = ${colors.background}
+
 label-mounted-foreground = #000
 label-mounted-background = ${colors.size}
 label-mounted-padding = 1
@@ -104,12 +137,12 @@ interval = 25
 mount-0 = /home
 
 ;label-mounted = %{F#2e99cd}%{T4}[ao[m%{F-} :%{T-}%{F#fff} %percentage_used%%
-;label-mounted = ${colors.volume-home} 
-label-mounted = %{T4} [ao[m %{T-} :%{F#fff} %percentage_used%%
+label-mounted = %{T3} [ao[m %{T-} :%{F#fff} %percentage_used%%
+
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-;label-mounted-background = ${colors.background}
-label-mounted-foreground = ${colors.background}
+
+label-mounted-foreground = ${colors.background-alt}
 label-mounted-background = ${colors.size}
 label-mounted-padding = 1
 
@@ -117,17 +150,23 @@ label-mounted-padding = 1
 type = internal/fs
 interval = 25
 
-mount-0 = /Media/Data
+mount-0 = /media/data
 
-;label-mounted = ${env:POLYBAR_LABEL} 
 ;label-mounted = %{F#2e99cd} %{T4}ft%{F-} :%{T-} %{F#fff}%percentage_used%%
-label-mounted = %{T4}ft :%{T-} %{F#fff}%percentage_used%%
+label-mounted = %{T3}ft :%{T-} %{F#fff}%percentage_used%%
+
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-;label-mounted-background = ${colors.background}
-label-mounted-foreground = ${colors.background}
+
+label-mounted-foreground = ${colors.background-alt}
 label-mounted-background = ${colors.size}
 label-mounted-padding = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE I3-WM
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/i3]
 
@@ -149,48 +188,29 @@ label-mode = %mode%
 label-mode-padding = 3
 label-mode-background = #e60053
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
 label-focused = %icon%
 label-focused-foreground = #fff
-label-focused-background = ${xrdb:color2}
+label-focused-background = ${colors.middle}
 label-focused-padding = 3
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
 label-unfocused = %icon%
 label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${xrdb:color2}
+label-unfocused-foreground = ${colors.middle}
 label-unfocused-padding = 3
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
 label-visible = %icon%
 label-visible-padding = 3
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
 label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 3
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE MPD
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/mpd]
 type = internal/mpd
@@ -219,13 +239,18 @@ label-song =  %artist% - %title%
 label-song-maxlen = 70
 label-song-ellipsis = true
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE WLAN
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/wlan]
 type = internal/network
-interface = wlp0s26f7u1
+interface = wlp3s0
 interval = 0.5
 
 format-connected = <ramp-signal> <label-connected>
-;format-connected-foreground = #1d1f21
 label-connected-foreground = ${colors.right_text}
 format-connected-background = ${colors.right_color}
 format-connected-margin = 0
@@ -242,22 +267,31 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.right_icon}
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE ETHERNET
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp0s25
 interval = 0.5
 
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-;label-connected = %{f#fff}%local_ip%  %{F#909090} %{f#fff}%upspeed% %{F#909090} %{F#fff}%downspeed%
-label-connected = %{F#fff}%local_ip% %{F#909090} %{F#fff}%upspeed% %{F#909090} %{F#fff}%downspeed%
+format-connected = <label-connected>
+label-connected-foreground = ${colors.right_text}
+format-connected-background = ${colors.right_color}
+format-connected-margin = 0
 
-;format-disconnected =
-format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-label-disconnected =
-label-disconnected-foreground = ${colors.foreground-alt}
+format-connected-padding = 2
+format-connected-prefix = 囹 
+label-connected =  %{F#eee}%local_ip% %{F-} %{F#eee}%upspeed% %{F-} %{F#eee}%downspeed%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE DATE
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/date]
 type = internal/date
@@ -277,11 +311,19 @@ format-padding = 2
 
 label = %{F#fff}%date% %time%
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE VOLUME
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/volume]
 type = internal/volume
+;use-ui-max = true
+;interval = 2
  
 format-volume = <ramp-volume> <label-volume>
-module-margin-right = 1
+module-margin-right = 0
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -289,35 +331,37 @@ ramp-volume-2 = 
 format-volume-foreground = #c33e3e 
 label-muted = ?muted
 
- 
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ ; MODULE BATTERY
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/battery]
+
 type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
+battery = BAT1
+adapter = AC
+full-at = 99
 
-;format-charging = Charging... <label-charging>
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${xrdb:color3}
+format-charging = <label-charging>
+label-charging =  %percentage%%
+format-charging-foreground = ${colors.size}
+format-charging-background = ${colors.background}
 
-;format-discharging = <label-discharging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging = <label-discharging>
+label-discharging =  %percentage%%
+format-discharging-foreground = ${colors.size}
+format-discharging-background = ${colors.background}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-charging-padding = 1
+format-discharging-padding = 1
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+; MODULE TEMPERATURE
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/temperature]
 type = internal/temperature
@@ -325,10 +369,7 @@ thermal-zone = 0
 warn-temperature = 70
 
 format = <ramp> <label>
-;format-underline = ${xrdb:color1}
-;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-;format-warn-underline = ${self.format-underline}
 format-background = ${colors.background}
 format-warn-background = ${colors.background}
 
@@ -343,12 +384,10 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.right_icon}
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
 margin-top = 5

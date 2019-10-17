@@ -1,0 +1,35 @@
+alias ls='ls --color=auto'
+alias svim='sudo vim'
+alias hvim='sudo -u http vim'
+alias xdm='/opt/xdman/xdman'
+alias PacketTracer='/opt/pt/bin/PacketTracer7'
+alias ydl='youtube-dl'
+alias man2pdf='/home/bima/script/man2pdf'
+alias hh='ranger'
+alias pac='pacaur'
+alias wifi='sudo wifi-menu'
+
+#Movement 
+alias cw='cd /var/www/localhost/'
+alias ca='cd /media/data/Jejepangan/Anime/'
+alias ccol='cd /media/data/College/'
+alias cv='cd /home/bima/Downloads/Video'
+alias cm='cd /media/data/bima/lagu/'
+alias cwd='cd /media/data/Web-Applications/'
+
+#Web 
+alias startLEMP='sudo systemctl start nginx | sudo systemctl start php-fpm | sudo systemctl start mysqld'
+alias restartLEMP='sudo systemctl restart nginx | sudo systemctl restart php-fpm | sudo systemctl restart mysqld'
+alias stopLEMP='sudo systemctl stop nginx | sudo systemctl stop php-fpm | sudo systemctl stop mysqld'
+alias startLAMP='sudo systemctl start httpd | sudo systemctl start mysqld'
+alias restartLAMP='sudo systemctl restart httpd | sudo systemctl restart mysqld'
+alias stopLAMP='sudo systemctl stop httpd | sudo systemctl stop mysqld'
+
+alias startLAMP='sudo systemctl start httpd | sudo systemctl start mysqld'
+alias restartLAMP='sudo systemctl restart httpd | sudo systemctl restart mysqld'
+alias stopLAMP='sudo systemctl stop httpd | sudo systemctl stop mysqld'
+
+#Remote 
+alias remosr='sudo systemctl start xrdp | sudo systemctl start xrdp-sesman'
+alias remost='sudo systemctl stop xrdp | sudo systemctl stop xrdp-sesman'
+alias remore='sudo systemctl restart xrdp | sudo systemctl restart xrdp-sesman'
