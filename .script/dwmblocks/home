@@ -1,0 +1,3 @@
+#!/bin/bash 
+size=$(df -h  /dev/sda5 --output=pcent | sed 1d | tr -d " ")
+echo "~:$size"

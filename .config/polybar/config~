@@ -4,25 +4,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [colors]
-background-alt = ${xrdb:color4}
-background = #aa222222
+background-alt = #222
+background = #bb3a3939
 ;background = #282a36 ;dark
 foreground = #dadada
 foreground-alt = ${xrdb:color0}
 primary = ${xrdb:color3}
 secondary = ${xrdb:color1}
 
-size = #222
-;size = ${colors.background}
+size = ${xrdb:color2} 
+;size = ${xrdb:color1}
 ;right_color = #5EB561
 
-right_color = #222
+right_color = ${xrdb:color2}
 ;right_color = ${xrdb:color1}
-right_text = ${xrdb:color4}
-;right_icon = ${xrdb:color0}
-right_icon = ${xrdb:color4}
+right_text = #222
+right_icon = ${xrdb:color0}
 
-middle = ${xrdb:color4}
+middle = ${xrdb:color5}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -35,7 +34,7 @@ monitor = ${env:MONITOR:eDP1}
 monitor1 = ${env:MONITOR:DP2}
 ;monitor = ${env:MONITOR:VNC-0}
 width = 100%
-height = 24
+height = 22
 bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,7 +42,7 @@ foreground = ${colors.foreground}
 offset-x = 0%
 offset-y = 0%
 
-line-size = 4
+line-size = 2
 line-color = {$xrdb:color1}
 
 border-size = 0
@@ -52,23 +51,21 @@ border-color = #00000000
 padding-left = 0
 padding-right = 0
 
-font-0 = FontAwesome:pixelsize=15;2
-font-1 = Iosevka Term:style=Bold:size=11;2
+
+font-0 = Font Awesome 5 Free:style=Regular:pixelsize=11;1
+;font-1 = FontAwesome:size=8;0
+;font-2 = Font Awesome 5 Brands:size=11.8:antialias=true:style=Solid;2
+font-1 = FreeSans:style=Regular:size=10;1
 font-2 = Hanacaraka:size=13;2
 font-3 = Hack Nerd Font:style=Medium:size=16;2
-font-4 = Typicons:size=18:style=Book;2
-font-5 = IPAGothic:size=16:style=bold:antialias=true;3
-;font-6 = Material Icon
+font-4 = Material Icons:pixelsize=14;4
+font-5 = IPAGothic:size=12.5:antialias=true;2
 
-;modules-left = battery right-down right-up filesystem home data right-down right-up volume right-down 
-;modules-right = mpd volume  filesystem home data temperature battery wlan eth  date 
-;modules-left =  i3
-;modules-right =  wlan eth   temperature  date
-modules-left = battery filesystem home data volume right-down
-modules-center = i3
-modules-right = left-up wlan eth temperature date
+modules-left = battery right-down right-up filesystem home data right-down right-up volume right-down 
+modules-center =  i3 
+modules-right =  left-up wlan eth left-down left-up temperature left-down left-up date
 
-tray-position = right
+tray-position = left
 tray-padding = 0
 tray-transparent = true
 ;tray-background = ${colors.right_color}
@@ -80,7 +77,7 @@ scroll-down = i3wm-wsprev
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; POWERLINE SYMBOLS
+; POWERLINE SYMBOL8
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/right-down]
@@ -131,36 +128,6 @@ content = %{T4}%{T-}
 content-padding = 0
 content-margin = 0
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MPD 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/mpd]
-type = internal/mpd
-
-; Host where mpd is running (either ip or domain name)
-; Can also be the full path to a unix socket where mpd is running.
-host = 127.0.0.1
-;host = 192.168.151.1
-port = 6600
-
-label-song = %{F#E89250} %{F-}%artist% - %title%
-
-format-online = <label-song> <bar-progress>
-
-bar-progress-width = 15
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-bar-progress-fill-foreground = ${colors.background-alt}
-bar-progress-empty-foreground =  #fff
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 1
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; MOUNT SIZE 
@@ -174,7 +141,7 @@ interval = 25
 mount-0 = /
 
 ;label-mounted = %{F#2e99cd}%mountpoint%%{F-} : %{F#fff}%percentage_used%%
-label-mounted = %{T1}SYSTEM : %{F#fff}%percentage_used%%
+label-mounted = %{T1} %mountpoint% : %{F#fff}%percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -191,7 +158,6 @@ mount-0 = /home
 
 ;label-mounted = %{F#2e99cd}%{T4}[ao[m%{F-} :%{T-}%{F#fff} %percentage_used%%
 label-mounted = %{T3} [ao[m %{T-} :%{F#fff} %percentage_used%%
-;label-mounted = %{T2} HOME%{T-} :%{F#fff} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -208,7 +174,6 @@ mount-0 = /media/data
 
 ;label-mounted = %{F#2e99cd} %{T4}ft%{F-} :%{T-} %{F#fff}%percentage_used%%
 label-mounted = %{T3}ft :%{T-} %{F#fff}%percentage_used%%
-;label-mounted = %{T2}DATA:%{T-} %{F#fff}%percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -249,20 +214,20 @@ label-mode-padding = 3
 label-mode-background = #e60053
 
 label-focused = %icon%
-;label-focused = 
+;label-focused = %index%
 label-focused-background = ${colors.middle}
-label-focused-foreground = #222
-label-focused-padding = 2
+label-focused-foreground = ${colors.background}
+label-focused-padding = 3
 
 label-unfocused = %icon%
-;label-unfocused = 
+;label-unfocused = %index%
 label-unfocused-foreground = ${colors.middle}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 2
+label-unfocused-padding = 3
 
-;label-visible = %icon%
-label-visible = %index%
-label-visible-padding = 2
+label-visible = %icon%
+;label-visible = %index%
+label-visible-padding = 3
 
 label-urgent = %icon%
 ;label-urgent = %index%
@@ -270,6 +235,38 @@ label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 3
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; MODULE MPD
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song> <label-time>
+#<icon-prev> <toggle> <icon-next>
+#<toggle>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+#icon-prev = <-
+#icon-stop = X
+#icon-play-prefix = #f00
+#icon-play = (Paused)
+#icon-pause =
+#icon-next = ->
+
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = -
+bar-progress-empty = -
+
+label-song =  %artist% - %title%
+label-song-maxlen = 70
+label-song-ellipsis = true
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -288,7 +285,7 @@ format-connected-background = ${colors.right_color}
 format-connected-margin = 0
 
 format-connected-padding = 2
-label-connected = %{F#eee} %essid% %{F-} %{F#eee} %upspeed% %{F-}  %{F#eee} %downspeed% 
+label-connected = %{F#eee} %essid% %{F-}  %{F#eee} %upspeed% %{F-}  %{F#eee} %downspeed% 
 
 format-disconnected = 
 
@@ -310,15 +307,14 @@ type = internal/network
 interface = enp0s25
 interval = 0.5
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 label-connected-foreground = ${colors.right_text}
 format-connected-background = ${colors.right_color}
 format-connected-margin = 0
 
 format-connected-padding = 2
-ramp-signal-0 = %{T5}%{T-}
-ramp-signal-foreground = ${colors.right_icon}
-label-connected =  %{F#eee}%local_ip% %{F#87d787}%{T5}%{T-} %{F#eee}%upspeed% %{F#87d787}%{T5}%{T-} %{F#eee}%downspeed%
+format-connected-prefix = 囹 
+label-connected =  %{F#eee}%local_ip% %{F-} %{F#eee}%upspeed% %{F-} %{F#eee}%downspeed%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -336,8 +332,7 @@ date-alt = " %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-;format-prefix = 
-format-prefix = %{T5}%{T-}
+format-prefix = 
 format-prefix-foreground = ${colors.right_icon}
 format-foreground = ${colors.right_text}
 format-background = ${colors.right_color}
@@ -358,9 +353,9 @@ type = internal/volume
  
 format-volume = <ramp-volume> <label-volume>
 ramp-volume-margin-left = 2
-ramp-volume-0 = %{T5}%{T-}
-ramp-volume-1 = %{T5}%{T-}
-ramp-volume-2 = %{T5}%{T-}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
  
 ;format-volume-foreground = #c33e3e 
 ramp-volume-foreground = ${colors.background-alt}
@@ -382,12 +377,12 @@ adapter = AC
 full-at = 99
 
 format-charging = <label-charging>
-label-charging = %{T5}%{T-} %{F#fff} %percentage%%
+label-charging =  %{F#fff} %percentage%%
 format-charging-background = ${colors.size}
 format-charging-foreground = ${colors.background-alt}
 
 format-discharging = <label-discharging>
-label-discharging = %{T5}%{T-} %{F#fff}%percentage%%
+label-discharging =  %{F#fff}%percentage%%
 format-discharging-background = ${colors.size}
 format-discharging-foreground = ${colors.background-alt}
 
@@ -412,8 +407,8 @@ format-warn-background = ${colors.size}
 
 label = %temperature%
 label-warn = %temperature%
-label-foreground = ${xrdb:color6}
-label-warn-foreground = ${xrdb:color2}
+label-foreground = ${xrdb:color7}
+label-warn-foreground = ${xrdb:color7}
 format-padding = 2 
 
 ramp-0 = 

@@ -1,28 +1,38 @@
 " vim-plug Plugins Manager
 call plug#begin('~/.vim/plugins')
+" SYNTAX  
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'othree/html5.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
+Plug 'junegunn/vim-easy-align'
+Plug '1995eaton/vim-better-javascript-completion'
+Plug 'honza/vim-snippets'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" AUTOCOMPLETE
+Plug 'vim-scripts/AutoComplPop'
+Plug 'SirVer/ultisnips'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+Plug 'davidhalter/jedi-vim'
+
+" THEME
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Rigellute/shades-of-purple.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'tomtom/tlib_vim'
-Plug 'othree/html5.vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'arnaud-lb/vim-php-namespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/AutoComplPop'
+Plug 'ryanoasis/vim-devicons'
+
+" UTILITIES
 Plug 'majutsushi/tagbar'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'posva/vim-vue'
-Plug 'junegunn/vim-easy-align'
-Plug 'Raimondi/delimitMate'
-Plug 'honza/vim-snippets'
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'SirVer/ultisnips'
-Plug '1995eaton/vim-better-javascript-completion'
+Plug 'tomtom/tlib_vim'
 Plug 'ervandew/supertab'
-Plug 'marcweber/vim-addon-mw-utils'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
 " BASIC CONFIGURATION
@@ -113,6 +123,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
+let g:powerline_pycmd = 'py3'
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
@@ -148,21 +159,13 @@ let g:airline_powerline_fonts = 1
   let g:airline_symbols.maxlinenr = ''
   let g:airline_symbols.dirty='⚡'
 
-let g:shades_of_purple_airline = 1
-let g:airline_theme='shades_of_purple'
-"let g:airline_theme='violet'
+"let g:shades_of_purple_airline = 1
+"let g:airline_theme='minimalist'
+ let g:airline_theme='base16'
 
 " TAGBAR
 "
 nmap <F4> :TagbarToggle<CR>
-
-
-" PHP NAMESPACE
-"
-autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
-autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
-let g:php_namespace_sort_after_insert = 1
-
 
 " NERDTREE PLUGINS
 "
@@ -180,6 +183,10 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 " VIM JEDI / Python Completion
 autocmd FileType python let g:jedi#auto_initialization = 1
 
+" VIM MARKDOWN
+let g:mkdp_browser = 'firefox'
+autocmd FileType markdown nmap <C-m> :MarkdownPreview<CR>
+
 " C++ CONFIGURATION
 "autocmd FileType cpp set ofu=omni#cpp#complete#Main
 
@@ -195,7 +202,7 @@ nmap tn :tabnew<CR>
 " Copy Paste Toggle
 "
 vnoremap <C-c> "+y
-map <C-v> "+p
+map <C-o> "+p
 
 " Move to jumping point
 "
@@ -224,7 +231,7 @@ nmap <F2> :noh<CR>
 "highlight Normal ctermfg=grey ctermbg=darkblue
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme challenger_deep
+"colorscheme nord 
 "colorscheme shades_of_purple
 set background=dark
 hi Normal ctermbg=NONE guibg=NONE
@@ -234,5 +241,5 @@ hi nonText ctermbg=NONE guibg=NONE
 ""hi LineNr term=NONE gui=NONE cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 ""hi Normal cterm=NONE ctermbg=NONE ctermfg=white guibg=NONE guifg=NONE
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-hi CursorLine   cterm=NONE ctermbg=black guibg=darkred 
-hi PMenu cterm=NONE ctermbg=NONE  guibg=darkred 
+hi CursorLine   cterm=NONE ctermbg=NONE guibg=black
+"hi PMenu cterm=NONE ctermbg=NONE  guibg=darkred 

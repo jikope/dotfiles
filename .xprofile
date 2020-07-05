@@ -1,0 +1,6 @@
+xinput disable 12
+setxkbmap -option 'ctrl:nocaps'
+setxkbmap -option 'ctrl:swapcaps'
+sudo ip link set wlp3s0 down
+nitrogen --restore; sleep 1; compton -b
+dwmblocks &

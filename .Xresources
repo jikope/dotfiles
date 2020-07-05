@@ -1,62 +1,68 @@
-
-! special
-
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
-Xft.antialias: 1
+Xft.antialias: true
 Xft.rgba: rgb*color0: #282a2e
 
-! special
-! special
-*foreground:        #e0d2db
-*background:        #121114
-*.foreground:       #e0d2db
-*.background:       #121114
-!*.background:   #fffff
-*.cursorColor:  #97cbdf
-*.color0: #121114
-*color0:  #121114
-*.color1: #AB6B8D
-*color1:  #AB6B8D
-*.color2: #C3749E
-*color2:  #C3749E
-*.color3: #C777A2
-*color3:  #C777A2
-*.color4: #B0929E
-*color4:  #B0929E
-*.color5: #CF99A4
-*color5:  #CF99A4
-*.color6: #D4ABAF
-*color6:  #D4ABAF
-*.color7: #e0d2db
-*color7:  #e0d2db
-*.color8: "#9c9399"
-*color8:  "#9c9399"
-*.color9: "#AB6B8D"
-*color9:  "#AB6B8D"
-*.color10: "#C3749E"
-*color10:  "#C3749E"
-*.color11: "#C777A2"
-*color11:  "#C777A2"
-*.color12: "#B0929E"
-*color12:  "#B0929E"
-*.color13: "#CF99A4"
-*color13:  "#CF99A4"
-*.color14: "#D4ABAF"
-*color14:  "#D4ABAF"
-*.color15: "#e0d2db"
-*color15:  "#e0d2db"
+URxvt*foreground: #F5F4EC
+!URxvt*background: [70]#36271F
+URxvt*background: [60]#000000
+URxvt*cursorColor: #F5F4EC
+*color0: #36271F
+*.color0: #36271F
+*color1: #D16A34
+*.color1: #D16A34
+*color2: #C16C4D
+*.color2: #C16C4D
+*color3: #C58F4F
+*.color3: #C58F4F
+*color4: #E89250
+*.color4: #E89250
+*color5: #7E8694
+*.color5: #7E8694
+*color6: #D4C0B3
+*.color6: #D4C0B3
+*color7: #F5F4EC
+*.color7: #F5F4EC
+*color8: #999999
+*.color8: #999999
+*color9: #D16A34
+*.color9: #D16A34
+*color10: #C16C4D
+*.color10: #C16C4D
+*color11: #C58F4F
+*.color11: #C58F4F
+*color12: #E89250
+*.color12: #E89250
+*color13: #7E8694
+*.color13: #7E8694
+*color14: #D4C0B3
+*.color14: #D4C0B3
+*color15: #F5F4EC
+*.color15: #F5F4EC
+*color66: #36271F
+rofi.color-window: argb:FF36271F, #36271F, #C16C4D
+rofi.color-normal: argb:FF36271F, #F5F4EC, #36271F, #C16C4D, #36271F
+rofi.color-active: argb:FF36271F, #F5F4EC, #36271F, #C16C4D, #36271F
+rofi.color-urgent: argb:FF36271F, #D16A34, #36271F, #D16A34, #F5F4EC
+dwm.normbordercolor:
+dwm.normbgcolor: #222222
+dwm.normfgcolor: #D16A34
+dwm.selbordercolor:
+dwm.selbgcolor: #000000
+dwm.selfgcolor: #F5F4EC
 
-! Black color that will not be affected by bold highlighting.
-*.color66: #121114
-*color66:  #121114
+emacs*background: #36271F
+emacs*foreground: #F5F4EC
 
-!URxvt.font: xft:SauceCodePro Nerd Font Mono:size=9.5
-!URxvt.font: xft:SourceCodePro Nerd Font Mono:size=11
-URxvt.font: xft:Hack Nerd Font Mono:size=9.5
-!URxvt.font: xft:Overpass Mono:size=10
+st.alpha: 0.7
+URxvt*font: xft:Iosevka Term:antialias=true:style=semibold:size=11, \
+            xft:IPAGothic:antialias=true:size=13, \
+            xft:Hanacaraka:size=12, \
+            xft:Hack Nerd Font Mono:style=bold:size=11
+
 URxvt.depth:                      32
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
@@ -64,9 +70,8 @@ URxvt*cursorBlink:                true
 URxvt*saveLines:                  5000
 URxvt*internalBorder: 		5
 URxvt*geometry: 		70x19
-!URxvt.background:		[80]#010109
-urxvt*transparent: true
-urxvt*shading: 90
+!urxvt*transparent: true
+!urxvt*shading: 90
 URxvt*letterSpace:		0
 URxvt.lineSpace:		0
 !URxvt.background:   [80]#0d331e
@@ -74,7 +79,7 @@ URxvt.cursorColor:		green
 URxvt.cursorBlink:		1
 URxvt.cursorUnderline:		1
 !! Extensions
-URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common:	default,matcher,resize-font
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
@@ -83,36 +88,35 @@ URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
-!! Matcher
+!
+ URxvt.keysym.C-Down:  resize-font:smaller
+ URxvt.keysym.C-Up:    resize-font:bigger
 URxvt.url-launcher:	linkhandler
-URxvt.matcher.button:	1
+URxvt.matcher.button: 1
 
 !rofi.color-enabled: true
-!rofi.lines: 3
+!rofi.lines: 10
 !rofi.eh: 3
 !rofi.width: 100
 !rofi.padding: 300
 !rofi.fake-transparency: true
 !rofi.opacity:   80
-!rofi.terminal: st
+rofi.terminal: st
 !rofi.glob: false
 !rofi.tokenize: true
-!rofi.font: Cantarell 16
+rofi.font: Cantarell 13
 !rofi.location: 0
 rofi.show-icons: true
-rofi.icon-size: 24 x 24
+rofi.icon-size: 48 x 48
 rofi.hide-scrollbar: true
+rofi.transparency: "real";
+rofi.fullscreen: true;
+rofi.background-color: #282c34d0;
 !! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 !rofi.color-normal: #00353944,  #FFFFFF,  #00353944,  #5294E2,  #FFFFFF
 !!                  'background', 'border'
 !rofi.color-window: #dd353944,      #dd404552
 rofi.color-enabled: true
-rofi.color-window: #2e3440, #2e3440, #2e3440
-rofi.color-normal: #2e3440, #d8dee9, #2e3440, #2e3440, #bf616a
-rofi.color-active: #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc
-rofi.color-urgent: #2e3440, #ebcb8b, #2e3440, #2e3440, #ebcb8b
 rofi.modi: run,drun,window
 
 ! ------------------------------------------------------------------------------
@@ -122,4 +126,4 @@ rofi.modi: run,drun,window
 dmenu.selforeground:	    #d8dee9
 dmenu.background:	        #2e3440
 dmenu.selbackground:	    #bf616a
-dmenu.foreground:	        #d8dee9
+dmenu.foreground: #d8dee9
