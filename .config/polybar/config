@@ -4,13 +4,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [colors]
-background-alt = ${xrdb:color4}
-background = #aa222222
+;background-alt = ${xrdb:color4}
+background = ${xrdb:background}
 ;background = #282a36 ;dark
-foreground = #dadada
-foreground-alt = ${xrdb:color0}
+foreground = #FFFFFF
+;foreground-alt = ${xrdb:color0}
 primary = ${xrdb:color3}
 secondary = ${xrdb:color1}
+red = ${xrdb:color1}
 
 size = #222
 ;size = ${colors.background}
@@ -20,14 +21,12 @@ right_color = #222
 ;right_color = ${xrdb:color1}
 right_text = ${xrdb:color4}
 ;right_icon = ${xrdb:color0}
-right_icon = ${xrdb:color4}
+right_icon = ${xrdb:color1}
 
 middle = ${xrdb:color4}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; BAR CONFIGURATION
-
+;; BAR CONFIGURATION
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [bar/example]
@@ -35,7 +34,7 @@ monitor = ${env:MONITOR:eDP1}
 monitor1 = ${env:MONITOR:DP2}
 ;monitor = ${env:MONITOR:VNC-0}
 width = 100%
-height = 24
+height = 22
 bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,7 +42,7 @@ foreground = ${colors.foreground}
 offset-x = 0%
 offset-y = 0%
 
-line-size = 4
+line-size = 2
 line-color = {$xrdb:color1}
 
 border-size = 0
@@ -52,21 +51,14 @@ border-color = #00000000
 padding-left = 0
 padding-right = 0
 
-font-0 = FontAwesome:pixelsize=15;2
-font-1 = Iosevka Term:style=Bold:size=11;2
-font-2 = Hanacaraka:size=13;2
-font-3 = Hack Nerd Font:style=Medium:size=16;2
-font-4 = Typicons:size=18:style=Book;2
-font-5 = IPAGothic:size=16:style=bold:antialias=true;3
+font-1 = Iosevka Nerd Font:pixelsize=12;3
+font-0 = Inconsolata:style=regular:size=10;2
+font-2 = Roboto Mono:style=Light:size=8;2
 ;font-6 = Material Icon
 
-;modules-left = battery right-down right-up filesystem home data right-down right-up volume right-down 
-;modules-right = mpd volume  filesystem home data temperature battery wlan eth  date 
-;modules-left =  i3
-;modules-right =  wlan eth   temperature  date
-modules-left = battery filesystem home data volume right-down
-modules-center = i3
-modules-right = left-up wlan eth temperature date
+;modules-left = battery filesystem home data volume right-down
+modules-left = i3 title
+modules-right = volume wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 0
@@ -74,99 +66,12 @@ tray-transparent = true
 ;tray-background = ${colors.right_color}
 tray-foreground = ${colors.foreground}
 
-
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; POWERLINE SYMBOLS
+;; MOUNT SIZE 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/right-down]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.size}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-[module/right-up]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.size}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-[module/mid-up]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.middle}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-[module/mid-down]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.middle}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-[module/left-up]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.right_color}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-[module/left-down]
-type = custom/text
-content-background = ${colors.background}
-content-foreground = ${colors.size}
-content = %{T4}%{T-}
-content-padding = 0
-content-margin = 0
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MPD 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/mpd]
-type = internal/mpd
-
-; Host where mpd is running (either ip or domain name)
-; Can also be the full path to a unix socket where mpd is running.
-host = 127.0.0.1
-;host = 192.168.151.1
-port = 6600
-
-label-song = %{F#E89250} %{F-}%artist% - %title%
-
-format-online = <label-song> <bar-progress>
-
-bar-progress-width = 15
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-bar-progress-fill-foreground = ${colors.background-alt}
-bar-progress-empty-foreground =  #fff
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 1
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MOUNT SIZE 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -218,91 +123,90 @@ label-mounted-background = ${colors.size}
 label-mounted-padding = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MODULE TITLE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/title]
+type = internal/xwindow
 
-; MODULE I3-WM
+format = <label>
+label = [] = %title%
+label-maxlen = 50
+format-margin = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;; MODULE I3-WM
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/i3]
 type = internal/i3
 pin-workspaces = true
 strip-wsnumbers = false
-enable-click = false
+enable-click = true
 index-sort = true
 
-ws-icon-0 = 1;壱
-ws-icon-1 = 2;弐
-ws-icon-2 = 3;参
-ws-icon-3 = 4;四
-ws-icon-4 = 5;五
-ws-icon-5 = 6;六
-ws-icon-6 = 7;七
-ws-icon-7 = 8;八
-ws-icon-8 = 9;九
-ws-icon-9 = 10;十
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
 ws-icon-default = 
 
 format = <label-state> <label-mode>
 
 label-mode = %mode%
-label-mode-padding = 3
+label-mode-padding = 1
 label-mode-background = #e60053
 
 label-focused = %icon%
 ;label-focused = 
-label-focused-background = ${colors.middle}
-label-focused-foreground = #222
-label-focused-padding = 2
+label-focused-underline = ${colors.red}
+label-focused-foreground = ${colors.red}
+label-focused-padding = 1
 
 label-unfocused = %icon%
 ;label-unfocused = 
-label-unfocused-foreground = ${colors.middle}
+label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ;label-visible = %icon%
 label-visible = %index%
-label-visible-padding = 2
+label-visible-padding = 1
 
 label-urgent = %icon%
 ;label-urgent = %index%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
-label-urgent-padding = 3
+label-urgent-padding = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MODULE WLAN
-
+;; MODULE WLAN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 0.5
 
 format-connected = <ramp-signal> <label-connected>
-label-connected-foreground = ${colors.right_text}
-format-connected-background = ${colors.right_color}
+format-connected-background = 
 format-connected-margin = 0
 
-format-connected-padding = 2
-label-connected = %{F#eee} %essid% %{F-} %{F#eee} %upspeed% %{F-}  %{F#eee} %downspeed% 
+format-connected-padding = 0
+label-connected = %essid% %{F#ED8796}祝%{F-}%upspeed% %{F#ED8796}%{F-}%downspeed%
+label-connected-foreground = ${colors.foreground}
 
 format-disconnected = 
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 直
 ramp-signal-foreground = ${colors.right_icon}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MODULE ETHERNET
-
+;; MODULE ETHERNET
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/eth]
@@ -321,34 +225,31 @@ ramp-signal-foreground = ${colors.right_icon}
 label-connected =  %{F#eee}%local_ip% %{F#87d787}%{T5}%{T-} %{F#eee}%upspeed% %{F#87d787}%{T5}%{T-} %{F#eee}%downspeed%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MODULE DATE
-
+;; MODULE DATE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
+date =  %d/%m/%y
 date-alt = " %d-%m-%Y"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
 ;format-prefix = 
-format-prefix = %{T5}%{T-}
+format-prefix =  
 format-prefix-foreground = ${colors.right_icon}
+format-prefix-padding = 1
 format-foreground = ${colors.right_text}
-format-background = ${colors.right_color}
-format-padding = 2
+format-background = 
+format-padding = 1
 
-label = %{F#fff}%date% %time%
+label =  %{F#fff}%date% %time%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MODULE VOLUME
-
+;; MODULE VOLUME
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/volume]
@@ -356,50 +257,51 @@ type = internal/volume
 ;use-ui-max = true
 ;interval = 2
  
-format-volume = <ramp-volume> <label-volume>
-ramp-volume-margin-left = 2
-ramp-volume-0 = %{T5}%{T-}
-ramp-volume-1 = %{T5}%{T-}
-ramp-volume-2 = %{T5}%{T-}
+format-volume = <label-volume>
+format-volume-margin = 1
+ramp-volume-margin-right = 0
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-3 = 
  
 ;format-volume-foreground = #c33e3e 
 ramp-volume-foreground = ${colors.background-alt}
-format-volume-foreground = ${xrdb:color7}
-format-volume-background = ${colors.size}
+format-volume-foreground = ${colors.background-alt}
+format-volume-background = 
+format-volume-prefix = 墳
+format-volume-prefix-padding = 1
+format-volume-prefix-foreground = ${colors.secondary}
 label-muted = ?muted
 
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
- ; MODULE BATTERY
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;; MODULE BATTERY
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/battery]
 
 type = internal/battery
 battery = BAT1
 adapter = AC
-full-at = 99
+full-at = 100
 
 format-charging = <label-charging>
-label-charging = %{T5}%{T-} %{F#fff} %percentage%%
-format-charging-background = ${colors.size}
+label-charging = %percentage%%
+format-charging-prefix = 
+format-charging-prefix-foreground = ${colors.right_icon}
+format-charging-prefix-padding = 1
+format-charging-background = 
 format-charging-foreground = ${colors.background-alt}
 
 format-discharging = <label-discharging>
-label-discharging = %{T5}%{T-} %{F#fff}%percentage%%
-format-discharging-background = ${colors.size}
-format-discharging-foreground = ${colors.background-alt}
+label-discharging =  %{F#fff}%percentage%%
+format-discharging-background = 
+format-discharging-foreground = ${colors.right_icon}
 
 format-charging-padding = 1
 format-discharging-padding = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; MODULE TEMPERATURE
-
+;; MODULE TEMPERATURE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -407,14 +309,14 @@ warn-temperature = 70
 
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
-format-background = ${colors.size}
-format-warn-background = ${colors.size}
+format-background = 
+format-warn-background = 
 
 label = %temperature%
 label-warn = %temperature%
-label-foreground = ${xrdb:color6}
-label-warn-foreground = ${xrdb:color2}
-format-padding = 2 
+label-foreground = ${colors.foreground}
+label-warn-foreground = ${xrdb:color1}
+format-padding = 0
 
 ramp-0 = 
 ramp-1 = 
