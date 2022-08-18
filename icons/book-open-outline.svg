@@ -1,0 +1,12 @@
+--2022-03-19 15:09:40--  https://raw.githubusercontent.com/Templarian/MaterialDesign-SVG/134fbd4fbf426f2b093c128ffefc727623fd39c0/svg/book-open-page-variant-outline.svg
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 863 [image/svg+xml]
+Saving to: ‘book-open-page-variant-outline.svg’
+
+     0K                                                       100% 72.3M=0s
+
+2022-03-19 15:09:41 (72.3 MB/s) - ‘book-open-page-variant-outline.svg’ saved [863/863]
+

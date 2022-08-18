@@ -1,0 +1,114 @@
+// @import "src/scss/variables";
+// @import "src/scss/global";
+
+// @import "src/scss/components/section1";
+// @import "src/scss/components/section2";
+// @import "src/scss/components/section3";
+
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: Roboto, "JetBrainsMono Nerd Font";
+}
+
+/** Background ***************************************/
+.bg {
+	background-image: url("images/bg.png");
+	background-color: #24273A;
+    background-repeat: no-repeat;
+    background-position: center center; 
+	opacity: 0.8;
+}
+
+/** Generic window ***********************************/
+.genwin {
+	background-color: #24273A;
+	opacity: 0.9;
+    // border: solid 1px #8AADF4;
+	border-radius: 12px;
+}
+
+
+/** Music ***************************************/
+.album_art {
+	background-size: 300px;
+	min-height: 190px;
+	min-width: 260px;
+	margin: 20px 20px 5px 20px;
+	border-radius: 5px;
+}
+
+.song {
+	color: #FFFFFF;
+	font-size : 16px;
+	font-weight : 500;
+	margin : 0px 13px 0px 13px;
+}
+
+.artist {
+	color: #FFFFFF;
+	font-size : 14px;
+	font-weight : 400;
+	margin : 0px 5px 0px 5px;
+}
+
+.genre {
+	color: #FFFFFF;
+	font-size : 14px;
+	font-weight : 300;
+	margin : 0px 5px 0px 5px;
+}
+
+.btn_prev {
+	color: #EED49F;
+	font-size : 24px;
+	font-weight : normal;
+}
+.btn_play {
+	//color: #A6DA95;
+	color: #EED49F;
+	font-size : 26;
+	font-weight : bold;
+}
+.btn_next {
+	color: #EED49F;
+	font-size : 24px;
+	font-weight : normal;
+}
+
+.music_bar scale trough highlight {
+	all: unset;
+	background-color: #ED8796;
+	border-radius: 8px;
+}
+.music_bar scale trough {
+	all: unset;
+	background-color: #3A404C;
+	border-radius: 8px;
+	min-height: 10px;
+	min-width: 300px;
+	margin : 0px 0px 0px 0px;
+}
+
+.volume {
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+.volume_bar {
+    margin: 0px 0px 0px 10px;
+}
+.volume_bar scale trough highlight {
+	all: unset;
+	background-color: #FFFFFF;
+	border-radius: 8px;
+}
+.volume_bar scale trough {
+	background-color: #3A404C;
+	border-radius: 8px;
+	min-height: 10px;
+	min-width: 150px;
+	margin : 0px 0px 0px 0px;
+}
+/** EOF *************************************************/
+
